@@ -46,87 +46,225 @@ const characters = [
 
 const scenes: Scene[] = [
     {
-        id: "scene_1",
-        title: "First Contact",
-        description: "Love rolls by and asks if you are humming. Emotional subroutines activate.",
+        id: "start",
+        title: "Grocery Collision",
+        description: "It's Valentine's Day. You bump into a girl carrying groceries. Apples roll everywhere.",
         choices: [
             {
-                id: "compliment",
-                text: "Compliment Love",
-                nextScene: "scene_2A"
+                id: "help_groceries",
+                text: "Help her pick up the groceries",
+                nextScene: "grocery_help"
             },
             {
-                id: "lift_table",
-                text: "Lift a table to impress her",
-                nextScene: "scene_2A"
-            },
-            {
-                id: "romantic_fact",
-                text: "Recite a romantic fact",
-                nextScene: "scene_2A"
+                id: "walk_away",
+                text: "Walk away and pretend nothing happened",
+                nextScene: "park_scene"
             }
         ]
     },
 
     {
-        id: "scene_2A",
-        title: "Cupcake Mission",
-        description: "You help Love deliver cupcakes. A stack of boxes starts to fall!",
+        id: "grocery_help",
+        title: "Helpful Stranger",
+        description: "You help her gather the groceries. She laughs and thanks you, then asks if you want to grab coffee.",
         choices: [
             {
-                id: "catch_boxes",
-                text: "Catch all the boxes",
-                nextScene: "scene_3A"
+                id: "confident_yes",
+                text: "Say yes confidently",
+                nextScene: "coffee_scene"
             },
             {
-                id: "calculate_trajectory",
-                text: "Calculate optimal catch path",
-                nextScene: "scene_3A"
+                id: "trip_yes",
+                text: "Say yes but trip immediately (Balance Check)",
+                nextScene: "balance_check"
             },
             {
-                id: "charm_joke",
-                text: "Charm Love with a joke",
+                id: "awkward_no",
+                text: "Say no and wave awkwardly",
+                nextScene: "surprise_end_awkward"
+            }
+        ]
+    },
+
+    {
+        id: "balance_check",
+        title: "Balance Check",
+        description: "You stumble mid-sentence. This could go either way.",
+        choices: [
+            {
+                id: "recover",
+                text: "Recover smoothly",
+                nextScene: "coffee_scene"
+            },
+            {
+                id: "fall_display",
+                text: "Fall into a grocery display",
+                nextScene: "surprise_end_gravity"
+            }
+        ]
+    },
+
+    {
+        id: "coffee_scene",
+        title: "Coffee Shop Chaos",
+        description: "You buy coffee for both of you, but your card declines. She steps in and pays.",
+        choices: [
+            {
+                id: "apologize",
+                text: "Apologize sincerely (Charisma Check)",
+                nextScene: "charisma_check"
+            },
+            {
+                id: "cash_offer",
+                text: "Offer to pay with cash",
+                nextScene: "good_end"
+            },
+            {
+                id: "joke",
+                text: "Make a joke about it (Charisma Check)",
+                nextScene: "charisma_check"
+            }
+        ]
+    },
+
+    {
+        id: "charisma_check",
+        title: "Charisma Check",
+        description: "Your words hang in the air. How do they land?",
+        choices: [
+            {
+                id: "success",
+                text: "She laughs",
+                nextScene: "good_end"
+            },
+            {
+                id: "fail",
+                text: "Awkward silence",
                 nextScene: "bad_end"
             }
         ]
     },
 
     {
-        id: "scene_2B",
-        title: "Awkward Moment",
-        description: "Things feel a little weird. Love seems unsure.",
+        id: "park_scene",
+        title: "Park Encounter",
+        description: "You go to the park to clear your head — and see her there feeding ducks.",
         choices: [
             {
-                id: "recover",
-                text: "Try to recover and keep going",
-                nextScene: "scene_3A"
+                id: "ask_coffee_again",
+                text: "Ask her to get coffee",
+                nextScene: "bad_end"
+            },
+            {
+                id: "ask_day",
+                text: "Ask how her day is",
+                nextScene: "park_scene_2"
+            },
+            {
+                id: "hide_tree",
+                text: "Hide behind a tree (Stealth Check)",
+                nextScene: "stealth_check"
             }
         ]
     },
 
     {
-        id: "scene_3A",
-        title: "Charging Dock Confession",
-        description: "The café closes. Love stands beside you near the charging docks.",
+        id: "stealth_check",
+        title: "Stealth Check",
+        description: "You attempt to hide. Poorly.",
         choices: [
             {
-                id: "ask_valentine",
-                text: "Ask Love to be your Valentine",
-                nextScene: "good_end"
+                id: "not_spotted",
+                text: "She doesn't notice you",
+                nextScene: "surprise_end_escape"
             },
             {
-                id: "give_gift",
-                text: "Give a perfectly calculated gift",
-                nextScene: "bittersweet_end"
-            },
-            {
-                id: "carry_home",
-                text: "Offer to carry her home",
-                nextScene: "bittersweet_end"
+                id: "spotted",
+                text: "She notices immediately",
+                nextScene: "park_scene_2"
             }
         ]
+    },
+
+    {
+        id: "park_scene_2",
+        title: "Second Chance",
+        description: "She relaxes and chats with you, then invites you to grab coffee.",
+        choices: [
+            {
+                id: "say_yes",
+                text: "Say yes",
+                nextScene: "coffee_scene"
+            },
+            {
+                id: "duck_joke",
+                text: "Say yes, but invite the ducks too (Humor Check)",
+                nextScene: "humor_check"
+            }
+        ]
+    },
+
+    {
+        id: "humor_check",
+        title: "Humor Check",
+        description: "The ducks react before she does.",
+        choices: [
+            {
+                id: "laughs",
+                text: "She laughs",
+                nextScene: "coffee_scene"
+            },
+            {
+                id: "ducks_flee",
+                text: "The ducks scatter dramatically",
+                nextScene: "surprise_end_ducks"
+            }
+        ]
+    },
+
+    {
+        id: "good_end",
+        title: "Sweet Valentine",
+        description: "You exchange numbers, laugh together, and save Valentine's Day.",
+        choices: []
+    },
+
+    {
+        id: "bad_end",
+        title: "Awkward Exit",
+        description: "She gets offended and leaves without saying anything.",
+        choices: []
+    },
+
+    {
+        id: "surprise_end_awkward",
+        title: "Too Awkward, Too Soon",
+        description: "You wave so hard you knock over the groceries again. She backs away slowly.",
+        choices: []
+    },
+
+    {
+        id: "surprise_end_gravity",
+        title: "Gravity Wins",
+        description: "You fall into a grocery display. The store applauds. She disappears.",
+        choices: []
+    },
+
+    {
+        id: "surprise_end_escape",
+        title: "Silent Escape",
+        description: "You successfully hide and leave the park forever. Alone.",
+        choices: []
+    },
+
+    {
+        id: "surprise_end_ducks",
+        title: "Duck Disaster",
+        description: "The ducks scatter. Romance does too.",
+        choices: []
     }
-]
+];
+
 
 // ---------- CHOICES HELPER FUNCTIONS -----------
 
@@ -201,7 +339,7 @@ function initializeElements() { //setup for some of the UI changes
 }
 
 function startStory() {
-    let firstScene = getSceneById("scene_1")
+    let firstScene = getSceneById("start")
     if (firstScene) {
         handleChoices(firstScene)
     }
