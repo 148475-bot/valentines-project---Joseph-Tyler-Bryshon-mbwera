@@ -1,4 +1,4 @@
-namespace SpriteKind {
+ namespace SpriteKind {
     export const Decal = SpriteKind.create()
     export const NPC = SpriteKind.create()
 }
@@ -221,48 +221,6 @@ const scenes: Scene[] = [
                 nextScene: "surprise_end_ducks"
             }
         ]
-    },
-
-    {
-        id: "good_end",
-        title: "Sweet Valentine",
-        description: "You exchange numbers, laugh together, and save Valentine's Day.",
-        choices: []
-    },
-
-    {
-        id: "bad_end",
-        title: "Awkward Exit",
-        description: "She gets offended and leaves without saying anything.",
-        choices: []
-    },
-
-    {
-        id: "surprise_end_awkward",
-        title: "Too Awkward, Too Soon",
-        description: "You wave so hard you knock over the groceries again. She backs away slowly.",
-        choices: []
-    },
-
-    {
-        id: "surprise_end_gravity",
-        title: "Gravity Wins",
-        description: "You fall into a grocery display. The store applauds. She disappears.",
-        choices: []
-    },
-
-    {
-        id: "surprise_end_escape",
-        title: "Silent Escape",
-        description: "You successfully hide and leave the park forever. Alone.",
-        choices: []
-    },
-
-    {
-        id: "surprise_end_ducks",
-        title: "Duck Disaster",
-        description: "The ducks scatter. Romance does too.",
-        choices: []
     }
 ];
 
@@ -322,15 +280,59 @@ function transitionToNextScene(sceneId: string) {
         // Handle ending scenes
         console.log('handling ending scene: ' + sceneId)
         if (sceneId === "good_end") {
-            story.printText("Synchronized systems. Love says yes.", 80, 90)
+            story.printText("You exchange numbers, laugh together, and save Valentine's Day.", 80, 90)
         } else if (sceneId === "bad_end") {
-            story.printText("Love reboots her feelings. You sweep alone.", 80, 90)
+            story.printText("She gets offended and leaves without saying anything.", 80, 90)
         } else if (sceneId === "early_end") {
             story.printText("You lecture about appliance law for 12 minutes straight.", 80, 90)
         } else if (sceneId === "bittersweet_end") {
             story.printText("The moment passes. Maybe next Valentine's Day.", 80, 90)
         }
     }
+
+
+    // {
+    //     id: "good_end",
+    //         title: "Sweet Valentine",
+    //             description: "You exchange numbers, laugh together, and save Valentine's Day.",
+    //                 choices: []
+    // },
+
+    // {
+    //     id: "bad_end",
+    //         title: "Awkward Exit",
+    //             description: "She gets offended and leaves without saying anything.",
+    //                 choices: []
+    // },
+
+    // {
+    //     id: "surprise_end_awkward",
+    //         title: "Too Awkward, Too Soon",
+    //             description: "You wave so hard you knock over the groceries again. She backs away slowly.",
+    //                 choices: []
+    // },
+
+    // {
+    //     id: "surprise_end_gravity",
+    //         title: "Gravity Wins",
+    //             description: "You fall into a grocery display. The store applauds. She disappears.",
+    //                 choices: []
+    // },
+
+    // {
+    //     id: "surprise_end_escape",
+    //         title: "Silent Escape",
+    //             description: "You successfully hide and leave the park forever. Alone.",
+    //                 choices: []
+    // },
+
+    // {
+    //     id: "surprise_end_ducks",
+    //         title: "Duck Disaster",
+    //             description: "The ducks scatter. Romance does too.",
+    //                 choices: []
+    // }
+
 }
 
 // ---------- GAME HELPER FUNCTIONS ------------
