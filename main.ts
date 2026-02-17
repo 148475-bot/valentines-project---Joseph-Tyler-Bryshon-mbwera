@@ -1,4 +1,4 @@
-namespace SpriteKind {
+   namespace SpriteKind {
     export const Decal = SpriteKind.create()
     export const NPC = SpriteKind.create()
 }
@@ -295,7 +295,7 @@ function handleChoices(sce: Scene) {
     for (let choice of sce.choices) {
         choiceTexts.push(choice.text)
     }
-    story.showPlayerChoices(choiceTexts[0], choiceTexts[1], choiceTexts[2]) // Display the choices
+    story.showPlayerChoices(choiceTexts[1], choiceTexts[1], choiceTexts[2]) // Display the choices 
 
     // After the player picks a choice, check the result
     story.startCutscene(function () {
