@@ -295,7 +295,7 @@ function handleChoices(sce: Scene) {
     for (let choice of sce.choices) {
         choiceTexts.push(choice.text)
     }
-    story.showPlayerChoices(choiceTexts[1], choiceTexts[1], choiceTexts[2]) // Display the choices 
+    story.showPlayerChoices(choiceTexts[0], choiceTexts[1], choiceTexts[2]) // Display the choices 
 
     // After the player picks a choice, check the result
     story.startCutscene(function () {
@@ -318,6 +318,10 @@ function transitionToNextScene(sceneId: string) {
 
     if (nextScene) {
         console.log('handling next scene: ' + nextScene)
+        if (nextScene.id === 'grocery_help') {
+            scene.setBackgroundImage(assets.image`asdf`)
+        }
+
         handleChoices(nextScene)
     } else {
         // Handle ending scenes
