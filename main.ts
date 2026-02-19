@@ -321,6 +321,7 @@ function transitionToNextScene(sceneId: string) {
         if (nextScene.id === 'grocery_help') {
             scene.setBackgroundImage(assets.image`asdf`)
         }
+        //TODO: Handle more scenes here
 
         handleChoices(nextScene)
     } else {
