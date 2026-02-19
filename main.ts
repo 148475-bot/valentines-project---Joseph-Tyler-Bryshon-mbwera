@@ -1,4 +1,4 @@
-   namespace SpriteKind {
+ namespace SpriteKind {
     export const Decal = SpriteKind.create()
     export const NPC = SpriteKind.create()
 }
@@ -42,7 +42,7 @@ const characters = [
         name: 'robotalot',
         roborizz: 3,
         processingPower: 8,
-        memory: 5
+        // memory: 5
     }
 ]
 
