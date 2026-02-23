@@ -1,3 +1,7 @@
+
+
+ namespace SpriteKind {
+
  namespace SpriteKind {
     export const Decal = SpriteKind.create()
     export const NPC = SpriteKind.create()
@@ -23,19 +27,43 @@ interface Scene {
 }
 
 // -------- DATA ----------
+const characters = [
+    {
+        name: 'robotnik',
+        roborizz: 5,
+        processingPower: 4,
+        memory: 7
+    },
+    {
+        name: 'roboamore',
+        roborizz: 9,
+        processingPower: 4,
+        memory: 3
+    },
+    {
+        name: 'robotalot',
+        roborizz: 3,
+        processingPower: 8,
+        // memory: 5
+    }
+]
 
 const scenes: Scene[] = [
     {
         id: "start",
         title: "Grocery Collision",
         description: "It's Valentine's Day. You bump into a girl carrying groceries. Apples roll everywhere.",
+
         choices: [
             {
+
                 id: "help_groceries",
                 text: "Help her pick up the groceries",
                 nextScene: "grocery_help"
+
             },
             {
+
                 id: "walk_away",
                 text: "Walk away and pretend nothing happened",
                 nextScene: "park_scene"
@@ -52,6 +80,7 @@ const scenes: Scene[] = [
                 id: "confident_yes",
                 text: "Say yes confidently",
                 nextScene: "coffee_scene"
+
             },
             {
                 id: "trip_yes",
@@ -233,6 +262,9 @@ function handleChoices(sce: Scene) {
     }
     story.showPlayerChoices(choiceTexts[0], choiceTexts[1], choiceTexts[2]) // Display the choices 
 
+    story.showPlayerChoices(choiceTexts[0], choiceTexts[1], choiceTexts[2]) // Display the choices 
+
+
     // After the player picks a choice, check the result
     story.startCutscene(function () {
         let selectedChoice = story.getLastAnswer() // Get the last answer as a string
@@ -255,6 +287,11 @@ function transitionToNextScene(sceneId: string) {
     if (nextScene) {
         console.log('handling next scene: ' + nextScene)
         if (nextScene.id === 'grocery_help') {
+            scene.setBackgroundImage(assets.image`HelpScene`)
+        }
+        //TODO: Handle more scenes here
+
+        if (nextScene.id === 'grocery_help') {
             scene.setBackgroundImage(assets.image`asdf`)
         } else if(nextScene.id === '') { //TODO: Update the '' after the === to the title of each scene
             scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
@@ -272,6 +309,18 @@ function transitionToNextScene(sceneId: string) {
         handleChoices(nextScene)
     } else {
         // Handle ending scenes
+        if (sceneId === "bad_end") {
+            story.printText("She gets offended and leaves without saying anything.", 80, 90)
+        } else if (sceneId === "surprise_end_awkward") {
+            story.printText("You wave so hard you knock over the groceries again. She backs away slowly.", 80, 90)
+        } else if (sceneId === "surprise_end_gravity") {
+            story.printText("You fall into a grocery display. The store applauds. She disappears.", 80, 90)
+        } else if (sceneId === "surprise_end_escape") {
+            story.printText("You successfully hide and leave the park forever. Alone.", 80, 90)
+        } else if (sceneId === "surprise_end_ducks") {
+            story.printText("The ducks scatter. Romance does too.", 80, 90)
+        } else if (sceneId === "good_end") {
+            story.printText("You exchange numbers, laugh together, and save Valentine's Day.", 80, 90)
         console.log('handling ending scene: ' + sceneId)
         if (sceneId === "good_end") {
             scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
