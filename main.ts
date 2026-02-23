@@ -329,10 +329,10 @@ function transitionToNextScene(sceneId: string) {
         console.log('handling ending scene: ' + sceneId)
         if (sceneId === "good_end") {
             story.printText("Synchronized systems. Love says yes.", 80, 90)
-        } else if (sceneId === "bad_end") {
-            story.printText("Love reboots her feelings. You sweep alone.", 80, 90)
-        } else if (sceneId === "early_end") {
-            story.printText("You lecture about appliance law for 12 minutes straight.", 80, 90)
+        } else if (sceneId === "surprise_end_ducks") {
+            story.printText("The ducks scatter. Romance does too", 80, 90)
+        } else if (sceneId === "surprise_end_escape") {
+            story.printText("You successfully hide and leave the park forever. Alone.", 80, 90)
         } else if (sceneId === "bittersweet_end") {
             story.printText("The moment passes. Maybe next Valentine's Day.", 80, 90)
         }
