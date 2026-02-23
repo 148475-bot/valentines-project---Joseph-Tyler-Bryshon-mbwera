@@ -3,8 +3,6 @@
     export const NPC = SpriteKind.create()
 }
 
-//
-
 // -------------- DATA STRUCTURES -----------------------
 //creating new types and interfaces is a touch too much 
 //for what I want to cover in this class. 
@@ -25,26 +23,6 @@ interface Scene {
 }
 
 // -------- DATA ----------
-const characters = [
-    {
-        name: 'robotnik',
-        roborizz: 5,
-        processingPower: 4,
-        memory: 7
-    },
-    {
-        name: 'roboamore',
-        roborizz: 9,
-        processingPower: 4,
-        memory: 3
-    },
-    {
-        name: 'robotalot',
-        roborizz: 3,
-        processingPower: 8,
-        // memory: 5
-    }
-]
 
 const scenes: Scene[] = [
     {
@@ -222,48 +200,6 @@ const scenes: Scene[] = [
                 nextScene: "surprise_end_ducks"
             }
         ]
-    },
-
-    {
-        id: "good_end",
-        title: "Sweet Valentine",
-        description: "You exchange numbers, laugh together, and save Valentine's Day.",
-        choices: []
-    },
-
-    {
-        id: "bad_end",
-        title: "Awkward Exit",
-        description: "She gets offended and leaves without saying anything.",
-        choices: []
-    },
-
-    {
-        id: "surprise_end_awkward",
-        title: "Too Awkward, Too Soon",
-        description: "You wave so hard you knock over the groceries again. She backs away slowly.",
-        choices: []
-    },
-
-    {
-        id: "surprise_end_gravity",
-        title: "Gravity Wins",
-        description: "You fall into a grocery display. The store applauds. She disappears.",
-        choices: []
-    },
-
-    {
-        id: "surprise_end_escape",
-        title: "Silent Escape",
-        description: "You successfully hide and leave the park forever. Alone.",
-        choices: []
-    },
-
-    {
-        id: "surprise_end_ducks",
-        title: "Duck Disaster",
-        description: "The ducks scatter. Romance does too.",
-        choices: []
     }
 ];
 
@@ -320,6 +256,16 @@ function transitionToNextScene(sceneId: string) {
         console.log('handling next scene: ' + nextScene)
         if (nextScene.id === 'grocery_help') {
             scene.setBackgroundImage(assets.image`asdf`)
+        } else if(nextScene.id === '') { //TODO: Update the '' after the === to the title of each scene
+            scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
+        } else if(nextScene.id === '') {
+            scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
+        } else if(nextScene.id === '') {
+            scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
+        } else if(nextScene.id === '') {
+            scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
+        } else if(nextScene.id === '') {
+            scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
         }
         //TODO: Handle more scenes here
 
@@ -328,13 +274,23 @@ function transitionToNextScene(sceneId: string) {
         // Handle ending scenes
         console.log('handling ending scene: ' + sceneId)
         if (sceneId === "good_end") {
-            story.printText("Synchronized systems. Love says yes.", 80, 90)
-        } else if (sceneId === "surprise_end_ducks") {
-            story.printText("The ducks scatter. Romance does too", 80, 90)
+            scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
+            story.printText("You exchange numbers, laugh together, and save Valentine's Day.", 80, 90)
+        } else if (sceneId === "bad_end") {
+            scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
+            story.printText("She gets offended and leaves without saying anything.", 80, 90)
+        } else if (sceneId === "surprise_end_awkward") {
+            scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
+            story.printText("You wave so hard you knock over the groceries again. She backs away slowly.", 80, 90)
+        } else if (sceneId === "surprise_end_gravity") {
+            scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
+            story.printText("You fall into a grocery display. The store applauds. She disappears.", 80, 90)
         } else if (sceneId === "surprise_end_escape") {
+            scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
             story.printText("You successfully hide and leave the park forever. Alone.", 80, 90)
-        } else if (sceneId === "bittersweet_end") {
-            story.printText("The moment passes. Maybe next Valentine's Day.", 80, 90)
+        } else if (sceneId === "surprise_end_ducks") {
+            scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
+            story.printText("The ducks scatter. Romance does too.", 80, 90)
         }
     }
 }
@@ -359,7 +315,7 @@ function runGame() {
 }
 
 function startGame() {
-    game.splash('Valentines Template: ', 'Your subtitle here')
+    game.splash('Valentines Template: ', 'Your subtitle here') //Todo: please update your games name
     runGame()
 }   
 
