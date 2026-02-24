@@ -256,17 +256,20 @@ function transitionToNextScene(sceneId: string) {
         console.log('handling next scene: ' + nextScene)
         if (nextScene.id === 'grocery_help') {
             scene.setBackgroundImage(assets.image`asdf`)
-        } else if(nextScene.id === '') { //TODO: Update the '' after the === to the title of each scene
+        } else if(nextScene.id === 'balance_check') { 
+            scene.setBackgroundImage(assets.image`balance bg`) //TODO: Create this background
+        } else if(nextScene.id === 'coffee_scene') {
             scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
-        } else if(nextScene.id === '') {
+        } else if(nextScene.id === 'charisma_check') {
             scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
-        } else if(nextScene.id === '') {
+        } else if(nextScene.id === 'park_scene') {
             scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
-        } else if(nextScene.id === '') {
+        } else if(nextScene.id === 'stealth_check') {
             scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
-        } else if(nextScene.id === '') {
-            scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
-        }
+        } else if(nextScene.id === 'park_scene_2'){
+            scene.setBackgroundImage(assets.image`bg`)
+
+        } else if(nextScene.id === 'humor_check')
         //TODO: Handle more scenes here
 
         handleChoices(nextScene)
