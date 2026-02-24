@@ -269,7 +269,9 @@ function transitionToNextScene(sceneId: string) {
         } else if(nextScene.id === 'park_scene_2'){
             scene.setBackgroundImage(assets.image`bg`)
 
-        } else if(nextScene.id === 'humor_check')
+        } else if(nextScene.id === 'humor_check'){
+            
+        }
         //TODO: Handle more scenes here
 
         handleChoices(nextScene)
