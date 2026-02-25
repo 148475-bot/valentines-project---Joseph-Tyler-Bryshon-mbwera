@@ -255,11 +255,11 @@ function transitionToNextScene(sceneId: string) {
     if (nextScene) {
         console.log('handling next scene: ' + nextScene)
         if (nextScene.id === 'grocery_help') {
-            scene.setBackgroundImage(assets.image`asdf`)
+            scene.setBackgroundImage(assets.image`help bg`)
         } else if(nextScene.id === 'balance_check') { 
             scene.setBackgroundImage(assets.image`balance bg`) //TODO: Create this background
         } else if(nextScene.id === 'coffee_scene') {
-            scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
+            scene.setBackgroundImage(assets.image`coffee bg`) //TODO: Create this background
         } else if(nextScene.id === 'charisma_check') {
             scene.setBackgroundImage(assets.image`bg`) //TODO: Create this background
         } else if(nextScene.id === 'park_scene') {
